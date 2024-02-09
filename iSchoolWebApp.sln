@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSchoolWebApp", "iSchoolWebApp\iSchoolWebApp.csproj", "{F7739355-E707-42DF-9571-68F21115DA4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7739355-E707-42DF-9571-68F21115DA4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7739355-E707-42DF-9571-68F21115DA4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7739355-E707-42DF-9571-68F21115DA4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7739355-E707-42DF-9571-68F21115DA4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8471EA0E-B8ED-4863-A835-29FD2209CF86}
+	EndGlobalSection
+EndGlobal
