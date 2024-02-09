@@ -1,0 +1,142 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Angie's new added styles... */
+.navbar-nav {
+    justify-content: right; /* navbar align to the right*/
+}
+
+/* about */
+.allAbout {
+    text-align: center;
+}
+.about {
+    padding:2.5%;
+    margin: 4.5%;
+    border: solid 4px black;
+    text-align:center;
+}
+#quote {
+    border: solid 2px black;
+    border-radius: 20px;
+    background-color: lightblue;
+    padding: 1%;
+}
+
+/* degrees */
+.allDegrees {
+    text-align: center;
+}
+.degreeHolder {
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+}
+.degreeCard {
+    border: solid 2px gray;
+    border-radius: 20px;
+    padding: 2%;
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    transition: transform 0.3s ease; /* transition animation */
+}
+.degreeCard:hover {
+    transform: scale(1.2);
+}
+#certs {
+    text-transform: capitalize;
+    padding: 2%;
+}
+
+/* employment */
+.allEmploy {
+    text-align: center;
+}
+#stats {
+    padding: 3%;
+    font-size: large;
+}
+#employLists {
+    display: flex;
+    justify-content: space-around;
+    background-color: lightblue;
+    padding: 1%;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+#employIntro {
+    padding: 1%;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* people */
+#sub {
+    text-align: center;
+}
+#faculty {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#staff {
+    margin: 20px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.person {
+    width: 200px;
+    display: inline-table;
+    background-color: lightblue;
+    margin-bottom: 20px;
+    padding: 1%;
+    border: solid 2px black;
+    border-radius: 5px;
+    text-align: center;
+}
+.person > img {
+    max-height: 200px;
+    max-width: 100%;
+    border-radius: 5px;
+    padding-bottom: 3%;
+}
+
+/* centers the tabs */
+.ui-tabs .ui-tabs-nav {
+    text-align: center;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    float: none !important;
+    display: inline-block;
+}

@@ -1,0 +1,127 @@
+﻿@model iSchoolWebApp.Models.PeopleModel
+@{
+    ViewData["Title"] = Model.pageTitle;
+}
+
+<h1>@Model.title</h1>
+
+<div id="sub">@Model.subTitle</div>
+
+<!-- makes sure stylings are loaded before displaying -->
+<div id="allPeople" style="display:none">
+
+    <div id="peopleTabs">
+        <ul>
+            <li><a href="#faculty">Faculty</a></li>
+            <li><a href="#staff">Staff</a></li>
+        </ul>
+        <div id="faculty">
+            @foreach (var faculty in Model.faculty)
+            {
+                <div class="person">
+                    <img src="@faculty.imagePath" alt="facultypic" />
+                    <h3 style="font-size:small; font-weight: bold">
+                        @faculty.name
+                    </h3>
+                    <h3 style="font-size:small">
+                        @faculty.title
+                    </h3>
+                    @if (faculty.tagline != "")
+                    {
+                        <h3 style="font-size:small">
+                            @faculty.tagline
+                        </h3>
+                    }
+                    @if (faculty.interestArea != "")
+                    {
+                        <h3 style="font-size:small">
+                            Interests : @faculty.interestArea
+                        </h3>
+                    }
+                    <h3 style="font-size:small">
+                        @faculty.office
+                    </h3>
+                    <h3 style="font-size:small">
+                        @faculty.phone
+                    </h3>
+                    <h3 style="font-size:small">
+                        @faculty.email
+                    </h3>
+                    @* checks if there is some kind of value *@
+                    @if (faculty.website != "")
+                    {
+                        <h3 style="font-size:small">
+                            <a href="@faculty.website" target="_blank">My Site</a>>
+                        </h3>
+                    }
+                    @if (faculty.twitter != "")
+                    {
+                        <h3 style="font-size:small">
+                            @faculty.twitter
+                        </h3>
+                    }
+                    @if (faculty.facebook != "")
+                    {
+                        <h3 style="font-size:small">
+                            @faculty.facebook
+                        </h3>
+                    }
+                </div>
+            }
+        </div>
+        <div id="staff">
+            @foreach (var staff in Model.staff)
+            {
+                <div class="person">
+                    <img src="@staff.imagePath" alt="staffpic" />
+                    <h3 style="font-size:small; font-weight: bold">
+                        @staff.name
+                    </h3>
+                    <h3 style="font-size:small">
+                        @staff.title
+                    </h3>
+                    @if (staff.tagline != "")
+                    {
+                        <h3 style="font-size:small">
+                            @staff.tagline
+                        </h3>
+                    }
+                    @if (staff.interestArea != "")
+                    {
+                        <h3 style="font-size:small">
+                            Interests : @staff.interestArea
+                        </h3>
+                    }
+                    <h3 style="font-size:small">
+                        @staff.office
+                    </h3>
+                    <h3 style="font-size:small">
+                        @staff.phone
+                    </h3>
+                    <h3 style="font-size:small">
+                        @staff.email
+                    </h3>
+                    @* checks if there is some kind of value *@
+                    @if (staff.website != "")
+                    {
+                        <h3 style="font-size:small">
+                            <a href="@staff.website" target="_blank">My Site</a>>
+                        </h3>
+                    }
+                    @if (staff.twitter != "")
+                    {
+                        <h3 style="font-size:small">
+                            @staff.twitter
+                        </h3>
+                    }
+                    @if (staff.facebook != "")
+                    {
+                        <h3 style="font-size:small">
+                            @staff.facebook
+                        </h3>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

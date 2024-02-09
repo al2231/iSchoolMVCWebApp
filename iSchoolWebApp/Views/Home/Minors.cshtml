@@ -1,0 +1,34 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = Model.pageTitle;
+}
+
+<h1>Minors</h1>
+
+<!-- makes sure stylings are loaded before displaying -->
+<div id="minorsAcc" style="display:none">
+    @foreach (var minor in Model.Minors.UgMinors)
+    {
+        <h3>@minor.title</h3>
+        <div class="minor">
+            <h3>@minor.title (@minor.name)</h3>
+            <p>@minor.description</p>
+
+            <div class="coursesAcc">
+                @foreach (var courseId in minor.courses)
+                {
+
+                    //retrieve the associated course from the Courses dictionary
+                    var course = Model.Courses[courseId];
+
+                    <h3>@courseId</h3>
+                    <div>
+                        <p>@course.title (@courseId)</p>
+                        <p>@course.description</p>
+                    </div>
+                }
+            </div>
+            <p>@minor.note</p>
+        </div>
+    }
+</div>

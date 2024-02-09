@@ -1,0 +1,162 @@
+﻿@model iSchoolWebApp.Models.DegreesModel
+@{
+    ViewData["Title"] = Model.pageTitle;
+}  
+@*SOURCE : https://jqueryui.com/dialog/#animated*@
+
+@* otherwise jQuery is not defined for the script below *@
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script>
+    // fixes the issue with calling dialog prior to initialization
+    jQuery.noConflict();
+    jQuery(document).ready(function ($) {
+
+    // sets each dialog
+    @foreach (var d in Model.undergraduate)
+    {
+        <text>
+                $(function () {
+                    $('#@d.degreeName').dialog({
+                        autoOpen: false,
+                        show: {
+                            effect: "blind",
+                            duration: 1000
+                        },
+                        hide: {
+                            effect: "fade",
+                            duration: 1000
+                        }
+                    });
+                    // sets the button to open
+                    $("#opener_@d.degreeName").on("click", function () {
+                        $("#@d.degreeName").dialog("open");
+                    });
+                });
+        </text>
+    }
+    // sets each dialog
+    @foreach (var d in Model.graduate)
+    {
+        @if (d.degreeName != "graduate advanced certificates")
+        {
+            <text>
+                $(function () {
+                    $('#@d.degreeName').dialog({
+                        autoOpen: false,
+                        show: {
+                            effect: "blind",
+                            duration: 1000
+                        },
+                        hide: {
+                            effect: "fade",
+                            duration: 1000
+                        }
+                    });
+                    // sets the button to open
+                    $("#opener_@d.degreeName").on("click", function () {
+                        $("#@d.degreeName").dialog("open");
+                    });
+                });
+            </text>
+        }
+    }
+        });
+
+</script>
+
+<div class="allDegrees">
+
+    <h1>Our Degrees</h1>
+
+    <hr/>
+
+    <!-- makes sure stylings are loaded before displaying -->
+    <div id="allDegrees" style="display:none">
+        <h2>Undergraduate</h2>
+        <div class="degreeHolder">
+            @foreach (var degree in Model.undergraduate)
+            {
+                <!-- dialog content -->
+                <!-- uses degreeName as unique id-->
+                <div id="@degree.degreeName" title="Degree Info">
+                    <h3 style="font-size:small; font-weight: bold">
+                        @degree.title (@degree.degreeName)
+                    </h3>
+                    <h3 style="font-size:small">
+                        @degree.description
+                    </h3>
+                    <h3 style="font-size:small">
+                        Concentrations:
+                    </h3>
+                    @foreach (var con in @degree.concentrations)
+                    {
+                        <h3 style="font-size:small">
+                            @con
+                        </h3>
+                    }
+                </div>
+
+                <div class="degreeCard">
+                    <h5>@degree.title (@degree.degreeName)</h5>
+                    <!-- opens the dialog box -->
+                    <button id="opener_@degree.degreeName">Click to Read More</button>
+                </div>
+            }
+        </div>
+
+        <h2>Graduate</h2>
+        <div class="degreeHolder">
+            @foreach (var degree in Model.graduate)
+            {
+                // makes sure the certifications are not included in degreeHolder
+                @if (degree.degreeName != "graduate advanced certificates")
+                {
+                    <!-- dialog content -->
+                    <!-- uses degreeName as unique id-->
+                    <div id="@degree.degreeName" title="Degree Info">
+                        <h3 style="font-size:small; font-weight: bold">
+                            @degree.title (@degree.degreeName)
+                        </h3>
+                        <h3 style="font-size:small">
+                            @degree.description
+                        </h3>
+                        <h3 style="font-size:small">
+                            Concentrations:
+                        </h3>
+                        @foreach (var con in @degree.concentrations)
+                        {
+                            <h3 style="font-size:small">
+                                @con
+                            </h3>
+                        }
+                    </div>
+
+                    <div class="degreeCard">
+                        <h5>@degree.title (@degree.degreeName)</h5>
+                        <!-- opens the dialog box -->
+                        <button id="opener_@degree.degreeName">Click to Read More</button>
+                    </div>
+                }
+            }
+        </div>
+
+        <!-- certifications as its own div-->
+        <div id="certs">
+            <h3>
+                @Model.graduate[3].degreeName
+            </h3>
+
+            <hr />
+
+            @foreach (var certificate in Model.graduate[3].availableCertificates)
+            {
+                <h6>
+                    @certificate
+                </h6>
+            }
+        </div>
+    </div>
+
+</div>
